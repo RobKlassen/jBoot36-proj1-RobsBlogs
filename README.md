@@ -68,3 +68,125 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+
+//  DECOMPILING DATA INTO SERIES OF NESTED ARRAYS
+
+// useEffect(function(){
+//     const dbRef = ref(database);
+//     const blogSections = [];
+    
+//     onValue(dbRef, function(dbCurrent){
+//         const myData = dbCurrent.val();
+        
+//         for (let dbSection in myData){
+//             const blogPosts = [];
+            
+//             for (let dbPosts in myData[dbSection]){
+//                 const postInfo = [];
+                
+//                 for (let dbParent in myData[dbSection][dbPosts]){
+//                     postInfo.push(myData[dbSection][dbPosts][dbParent]);
+//                 }
+//                 blogPosts.push(postInfo);
+//             }
+//             blogSections.push(blogPosts);
+//         }
+//         console.log(blogSections);
+//         console.log(blogSections[0]);
+//         console.log(blogSections[0][0]);
+//     })
+// },[]);
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useState, useEffect } from 'react';
+// import realtime from './firebase';
+// import { ref, onValue, push } from 'firebase/database';
+// import './App.css';
+// // import { firebase/database } from 'firebase';
+
+
+// function App() {
+//     const [bookList, setBookList] = useState([]);
+//     const [userInput, setUserInput] = useState("");
+    
+//     useEffect( ()=> {
+//         const dbRef = ref(realtime);
+        
+//         onValue(dbRef, function(snapshot){
+//             const myData = snapshot.val();
+//             const newArray = [];
+            
+//             for (let propertyName in myData){
+//                 const bookObject = {
+//                     key: propertyName,
+//                     title: myData[propertyName]
+//                 }
+//                 newArray.push(bookObject);
+//             }
+//             setBookList(newArray);
+//         });
+//     },[]);
+
+//     const handleChange = function(event){
+//         setUserInput(event.target.value);
+//     }
+
+//     const handleSubmit = function(event){
+//         event.preventDefault();
+//         if (userInput){
+//             const dbRef = ref(realtime);
+//             push(dbRef, userInput);
+//             setUserInput("");
+//         }
+//         else{
+//             alert("I AM HUNGER SATIATE ME")
+//         }
+//     }
+    
+//     return (
+//         <div className="App">
+//             <h1>Readin'</h1>
+
+//             <form onSubmit={ handleSubmit }>
+//                 <label htmlFor="userBookChoice">add thy book ye fool </label>
+//                 <input 
+//                     type="text" 
+//                     id="userBookChoice"
+//                     onChange={ handleChange }
+//                     value={ userInput }
+//                     />
+//                 <button>feed data to database</button>
+//             </form>
+
+//             <ul>
+//                 {
+//                     bookList.map(function(individualBook){
+//                         return (
+//                         <li key={individualBook.key}>
+//                             <p>{individualBook.title}</p>
+//                         </li>
+//                         )
+//                     })
+//                 }
+//             </ul>
+//         </div>
+//     );
+// }
+
+// export default App;
