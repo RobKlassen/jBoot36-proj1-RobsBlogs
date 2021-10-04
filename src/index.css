@@ -21,10 +21,32 @@ code {
 }
 
 .navButtons{
-    display:flex;
-    flex-direction: column;
+    width:250px;
+    /* height:100vh; */
+    height:300px;
+    border: solid 1px black;
 }
 
-.navButtons button{
+.navButtons ul{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    list-style: none;
+    padding:5px;
+    margin:0;
+}
+
+.navButtons ul button{
     width:100%;
+}
+.navButtons ul .createNewBlogButton{
+    /* align-self: flex-end; */
+    /* align-self: flex-end; */
+    margin-top: auto;
+    width:100%;
+}
+
+header{
+    text-align: center;
+    border:solid 1px black;
 }

@@ -1,7 +1,7 @@
 const GetSection = function(props){
     return(
         <li>
-        <p>{props.section}</p>
+            <p>{props.section}</p>
         </li>
     )
 }
