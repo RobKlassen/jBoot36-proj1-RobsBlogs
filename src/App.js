@@ -7,6 +7,7 @@ import GetBlogPosts from './GetBlogPosts';
 import Header from './Header';
 import Footer from './Footer';
 import CreateNewBlog from './CreateNewBlog';
+import GetNewPostForm from './GetNewPostForm';
 
 function App() {
    
@@ -48,7 +49,11 @@ function App() {
                         <ul> 
                             {
                                 showSection === true ?
-                                <GetBlogPosts section={ targetSection }/> 
+                                <>
+                                    <GetBlogPosts section={ targetSection }/>
+                                    <GetNewPostForm currentBlog={ targetSection }/>
+
+                                </>
                                 : null
                             }
                             {

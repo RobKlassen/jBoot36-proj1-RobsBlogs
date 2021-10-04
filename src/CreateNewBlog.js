@@ -39,10 +39,10 @@ const CreateNewBlog = function(){
         <div className="blogCreateMainContent">
             <h2>Hi, you've entered the world of blog creation</h2>
             <form onSubmit={ handleSubmitPostTitle }>
-            <CreateInput type={ "text" } id={ "id1" } onChange ={ handleChangeBlogTitle } value={ userInputBlog } />
-            <CreateInput type={ "text" } id={ "id2" } onChange ={ handleChangePostTitle } value={ userInputTitle } />
-            <CreateInput type={ "text" } id={ "id3" } onChange ={ handleChangePostContent } value={ userInputContent } />
-            <button>feed data to database</button>
+                <CreateInput type={ "text" } id={ "id1" } onChange ={ handleChangeBlogTitle } value={ userInputBlog } />
+                <CreateInput type={ "text" } id={ "id2" } onChange ={ handleChangePostTitle } value={ userInputTitle } />
+                <CreateInput type={ "text" } id={ "id3" } onChange ={ handleChangePostContent } value={ userInputContent } />
+                <button>feed data to database</button>
             </form>
         </div>
     )
