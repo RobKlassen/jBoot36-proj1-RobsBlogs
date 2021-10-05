@@ -29,7 +29,7 @@ const CreateNewBlog = function(props){
     const handleSubmitPostTitle = function(event){
         event.preventDefault();
 
-        if (((enableNewBlog == false) && userInputTitle && userInputContent) || (userInputBlog && userInputTitle && userInputContent)){
+        if (((enableNewBlog === false) && userInputTitle && userInputContent) || (userInputBlog && userInputTitle && userInputContent)){
             let childNodeRef;
             if (enableNewBlog){
                 childNodeRef = ref(database, userInputBlog);
