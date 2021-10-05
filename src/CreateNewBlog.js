@@ -37,13 +37,41 @@ const CreateNewBlog = function(){
     }
 
     return(
-        <div className="blogCreateMainContent">
-            <h2>Hi, you've entered the world of blog creation</h2>
-            <form onSubmit={ handleSubmitPostTitle }>
-                <CreateInput type={ "text" } id={ "id1" } onChange ={ handleChangeBlogTitle } value={ userInputBlog } />
-                <CreateInput type={ "text" } id={ "id2" } onChange ={ handleChangePostTitle } value={ userInputTitle } />
-                <CreateInput type={ "text" } id={ "id3" } onChange ={ handleChangePostContent } value={ userInputContent } />
-                <button>feed data to database</button>
+        <div className="blogCreateContainer">
+            <h2>Create a new Blog!</h2>
+            <h3>And don't forget to create your first entry!</h3>
+            <form onSubmit={ handleSubmitPostTitle } className="createBlogForm">
+                <CreateInput 
+                    type={ "text" } 
+                    id={ "id1" } 
+                    onChange ={ handleChangeBlogTitle } 
+                    value={ userInputBlog } 
+                    groupClass={"blogTitleGroup"} 
+                    groupClassLabel={"blogTitleLabel"} 
+                    groupClassInput={"blogTitleInput"} 
+                    labelText={"Blog Title: "}/>
+                <div className="titleAndContentContainer">
+                    <CreateInput 
+                        type={ "text" } 
+                        id={ "id2" } 
+                        onChange ={ handleChangePostTitle } 
+                        value={ userInputTitle } 
+                        groupClass={"postTitleGroup"} 
+                        groupClassLabel={"postTitleLabel"} 
+                        groupClassInput={"postTitleInput"}
+                        labelText={"Title of Blog Post: "} />
+
+                    <CreateInput  
+                        type={ "textarea" } 
+                        id={ "id3" } 
+                        onChange ={ handleChangePostContent } 
+                        value={ userInputContent } 
+                        groupClass={"postContentGroup"} 
+                        groupClassLabel={"postContentLabel"} 
+                        groupClassInput={"postContentInput"}
+                        labelText={"Your Blog Entry: "} />
+                </div>
+                <button>create new blog</button>
             </form>
         </div>
     )

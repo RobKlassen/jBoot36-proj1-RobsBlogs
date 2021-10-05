@@ -1,19 +1,33 @@
 import { useEffect } from 'react';
 
 const CreateInput = function(props){
-    const { type, id, onChange, value } = props
-    
+    const { type, id, onChange, value, groupClass, groupClassLabel, groupClassInput, labelText } = props
+    // console.log(type);
     useEffect(()=>{return (() => {});},[]);
-    // what the hell???
+    // what the cuss???
 
     return(
         <>
-            <label htmlFor={id}>Title for your new blog: </label>
-            <input 
-                type={ type } 
-                id={ id }
-                onChange={ onChange }
-                value={ value }/>
+        <div className={groupClass}>
+            <label htmlFor={id} className={groupClassLabel}>{labelText}</label>
+            {
+                type==="text"
+                ?
+                    <input 
+                        className={ groupClassInput }
+                        type={ type } 
+                        id={ id }
+                        onChange={ onChange }
+                        value={ value }/>
+                :
+                    <textarea 
+                        className={ groupClassInput }
+                        type={ type } 
+                        id={ id }
+                        onChange={ onChange }
+                        value={ value }/>  
+            }
+        </div>
         </>
     )
 }
