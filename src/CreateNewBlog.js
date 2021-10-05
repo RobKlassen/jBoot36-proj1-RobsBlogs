@@ -25,7 +25,8 @@ const CreateNewBlog = function(){
         event.preventDefault();
         if (userInputBlog && userInputTitle && userInputContent){
             const childNodeRef = ref(database, userInputBlog);
-            push(childNodeRef, {title: userInputTitle, content: userInputContent});
+            const timestamp = new Date().toLocaleDateString("en-US", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
+            push(childNodeRef, {title: userInputTitle, content: userInputContent, timestamp: timestamp});
             setUserInputTitle("");
             setUserInputBlog("");
             setUserInputContent("");
@@ -49,5 +50,3 @@ const CreateNewBlog = function(){
 }
 
 export default CreateNewBlog
-
-

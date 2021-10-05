@@ -44,7 +44,6 @@ function App() {
             <Header/>
             <main>
                 <div className="mainWrapper">
-
                     <div className="contentDisplay">
                         <ul> 
                             {
@@ -63,25 +62,28 @@ function App() {
                             }
                         </ul>
                     </div>
-
                     <div className="navButtons">
                         <ul>
+                            <button className="createNewBlogButton" onClick={ function() {
+                                setShowMain(false)
+                                setShowSection(false)
+                                setShowCreateBlog(true)
+                            }
+                            }>Create New Blog</button>
                             {
                                 showMain === true 
                                 ?
-                                    sectionList.map(function(siteSection, index){
+                                    sectionList.map(function(siteSection){
                                         return(
-                                            <div className="">
-                                                {/* <GetSection key={ siteSection.key } section={ siteSection.name }/> */}
-
+                                            <>
                                                 <button onClick={ function(){
                                                     setTargetSection(siteSection.name)                                 
                                                     setShowMain(false)
                                                     setShowSection(true)
                                                     setShowCreateBlog(false)
                                                 }
-                                                }>show {siteSection.name} entries</button> 
-                                            </div>
+                                                }>{siteSection.name}</button> 
+                                            </>
                                         )
                                     }) 
                                 :
@@ -92,12 +94,7 @@ function App() {
                                 }
                                 }>Return to Main</button>
                             }
-                            <button className="createNewBlogButton" onClick={ function() {
-                                setShowMain(false)
-                                setShowSection(false)
-                                setShowCreateBlog(true)
-                            }
-                            }>Create New Blog</button>
+
                         </ul>
                     </div>
                 </div>

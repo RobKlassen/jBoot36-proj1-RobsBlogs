@@ -17,7 +17,8 @@ const GetBlogPosts = function(props){
                 const dataObject = {
                     key: dbBlogPosts,
                     title: myData[props.section][dbBlogPosts].title,
-                    content: myData[props.section][dbBlogPosts].content
+                    content: myData[props.section][dbBlogPosts].content,
+                    timestamp: myData[props.section][dbBlogPosts].timestamp
                 }
                 dataBlogPostArray.push(dataObject);
             }
@@ -29,13 +30,10 @@ const GetBlogPosts = function(props){
         blogPosts.map(function(blogpost){
             return(
                 <>
-                    <GetSection key={ blogpost.key } section={ blogpost.title }/>
-                    <GetSection key={ blogpost.key } section={ blogpost.content }/>
+                    <GetSection key={ blogpost.key+"title" } section={ blogpost.title }/>
+                    <GetSection key={ blogpost.key+"content" } section={ blogpost.content }/>
+                    <GetSection key={ blogpost.key+"content" } section={ blogpost.timestamp }/>
                 </>      
-                // <li key={blogpost.key}>
-                //     <p>{blogpost.title}</p>
-                //     <p>{blogpost.content}</p>
-                // </li>
             )
         })
     )

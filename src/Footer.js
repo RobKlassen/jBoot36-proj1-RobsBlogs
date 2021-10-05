@@ -14,7 +14,7 @@ const Footer = function(){
 
     return(
         <footer>
-            <p>Coded by Rob</p>
+            <p>Rob Klassen - Juno College of Technology, Cohort 36, Project 3 </p>
         </footer>
     )
 }

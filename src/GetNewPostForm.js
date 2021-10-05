@@ -4,16 +4,11 @@ import database from './firebase';
 import CreateInput from './CreateInput';
 
 const GetNewPostForm = function(props){
-        
     const { currentBlog } = props;
 
-    // const [userInputBlog, setUserInputBlog] = useState("");
     const [userInputTitle, setUserInputTitle] = useState("");
     const [userInputContent, setUserInputContent] = useState("");
-
-    // const handleChangeBlogTitle = function(event){
-    //     setUserInputBlog(event.target.value);
-    // }
+    const [showCompleteBlog, setShowCompleteBlog] = useState(false);
 
     const handleChangePostTitle = function(event){
         setUserInputTitle(event.target.value);
@@ -27,25 +22,37 @@ const GetNewPostForm = function(props){
         event.preventDefault();
         if (userInputTitle && userInputContent){
             const childNodeRef = ref(database, currentBlog);
-            push(childNodeRef, {title: userInputTitle, content: userInputContent});
-            // setUserInputBlog("");
+            const timestamp = new Date().toLocaleDateString("en-US", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'});
+            push(childNodeRef, {title: userInputTitle, content: userInputContent, timestamp: timestamp});
             setUserInputTitle("");
             setUserInputContent("");
+            setShowCompleteBlog(true);
         }
         else{
             alert("Please fill out all inputs");
         }
     }
 
-    
-    
     return(
-        <form onSubmit={ handleSubmitPostTitle }>
-            <CreateInput type={ "text" } id={ "id2" } onChange ={ handleChangePostTitle } value={ userInputTitle } />
-            <CreateInput type={ "text" } id={ "id3" } onChange ={ handleChangePostContent } value={ userInputContent } />
-            <button>Push some data to firebase</button>
-        </form>
+        <>
+        {        
+            showCompleteBlog === false 
+            ?
+            <form onSubmit={ handleSubmitPostTitle }>
+                <CreateInput type={ "text" } id={ "id2" } onChange ={ handleChangePostTitle } value={ userInputTitle } />
+                <CreateInput type={ "text" } id={ "id3" } onChange ={ handleChangePostContent } value={ userInputContent } />
+                <button>Push some data to firebase</button>
+            </form>
+            :
+            <> 
+            <h1>Post Made!</h1>
+            <button 
+                onClick={ () => setShowCompleteBlog(false) }>Make Another Post?</button>
+            </> 
+        }
+        </>
     )
 }
 
 export default GetNewPostForm
+
