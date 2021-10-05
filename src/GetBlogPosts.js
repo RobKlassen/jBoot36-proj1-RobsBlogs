@@ -24,7 +24,7 @@ const GetBlogPosts = function(props){
             }
             setBlogPosts(dataBlogPostArray);
         });       
-    },[]);
+    });
 
     return( 
         blogPosts.map(function(blogpost){
