@@ -26,7 +26,11 @@ const GetBlogPosts = function(props){
             }
             setBlogPosts(dataBlogPostArray);
         });       
-    },[]);
+    },);
+    // });
+    // },[]);
+    //which one??
+    // });
 
     return( 
         <>
@@ -42,8 +46,8 @@ const GetBlogPosts = function(props){
                         https://www.jsdiaries.com/how-to-create-a-new-line-in-jsx-and-reactjs/
                         WHAT A LEGENDARY SOLUTION TO THE NEWLINE PROBLEM HOLY SMOKES */}
                         {
-                            blogpost.content.split('\n').map(i =>{
-                                return <p className="blogPostContent">{i}</p>
+                            blogpost.content.split('\n').map((i,index) =>{
+                                return <p key={index} className="blogPostContent">{i}</p>
                             })
                         }  
                     </div>   
