@@ -6,6 +6,7 @@ import GetBlogPosts from './GetBlogPosts';
 import Header from './Header';
 import Footer from './Footer';
 import CreateNewBlog from './CreateNewBlog';
+import GetMain from './GetMain';
 
 
 function App() {
@@ -66,6 +67,14 @@ function App() {
                                 : 
                                 null
                             }
+                            {
+                                showMain === true
+                                ?
+                                <GetMain/>
+                                // Make this get new blog post, make it a random blog post.
+                                :
+                                null
+                            }
                         </ul>
                     </div>
                     <div className="navButtons">
@@ -106,6 +115,26 @@ function App() {
 }
 
 export default App;
+
+
+//TO DO
+// 
+
+// 1. add default content to main
+// 1.5fix the key issue
+// 2. make create new blog send you to the main
+// 3. style create new blog success (also adds new post Text, unique)
+// 4. add fonts
+// 5. add nicer colours
+// 6. add image auth????
+// 7. add name????????
+
+
+
+
+
+
+
 
 
 

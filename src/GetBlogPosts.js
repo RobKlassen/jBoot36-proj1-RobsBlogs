@@ -26,14 +26,8 @@ const GetBlogPosts = function(props){
             }
             setBlogPosts(dataBlogPostArray);
         });
-        
-// ========================================================================
+
 },[props.section]);
-// });
-// },);
-// },[]);
-//which one??
-// ========================================================================
 
     return( 
         <>
@@ -43,14 +37,18 @@ const GetBlogPosts = function(props){
                 return(
                     <div className="blogPostContainer" key={ blogpost.key } >
                         <h3 className="blogPostHeader">{ blogpost.title }</h3>
-                        <p className="blogPostTimestamp">{ blogpost.timestamp }</p>
+                        <p className="blogPostTimestamp">    { blogpost.timestamp }</p>
                         
                         {/* THIS IS FROM: 
                         https://www.jsdiaries.com/how-to-create-a-new-line-in-jsx-and-reactjs/
-                        WHAT A LEGENDARY SOLUTION TO THE NEWLINE PROBLEM HOLY SMOKES */}
+                        WHAT A LEGENDARY SOLUTION TO THE NEWLINE PROBLEM HOLY SMOKES 
+                        
+                        Also, put in ALT+255 ascii character (non space blank space) into the above and below code, which solves the quirky issue of indentation 
+
+                        */}
                         {
                             blogpost.content.split('\n').map((i,index) =>{
-                                return <p key={index} className="blogPostContent">{i}</p>
+                                return <p key={index} className="blogPostContent">    {i}</p>
                             })
                         }  
                     </div>   

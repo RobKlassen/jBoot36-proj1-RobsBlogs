@@ -195,11 +195,13 @@ h1{
 }
 
 .contentDisplay .blogPostContainer .blogPostHeader{
+    word-wrap: break-word;
     color:rgb(7, 71, 136);
     font-size:2rem
 }
 
 .contentDisplay .blogPostContainer .blogPostTimestamp{
+    word-wrap: break-word;
     font-size: 1rem;
     color:rgb(7, 71, 136);
     font-variant:small-caps;
@@ -207,6 +209,9 @@ h1{
 }
 .contentDisplay .blogPostContainer .blogPostContent{
     font-size: 1.2rem;
+    word-wrap: break-word;
+    text-align: justify;
+    text-justify: auto;
 }
 
 
