@@ -81,18 +81,14 @@ h1{
     border-bottom: solid 4px red;
 }
 
-
-
+/* ===================MAIN CONTENT AREA=================== */
 .contentDisplay{
-    padding-top: 2rem;
+    /* padding-top: 2rem; */
     padding-bottom: 2rem;
     width:80%;
     /* display:flex; */
     /* flex-direction: column; */
 }
-
-
-
 
 /* ===================CREATE BLOG CONTAINER TITLES=================== */
 .blogCreateContainer h2,
@@ -154,7 +150,9 @@ h1{
 .blogCreateContainer .createBlogForm .postContentInput{
     width:100%;
     height:10rem;
-    font-size:1rem
+    font-size:1rem;
+    resize: none;
+    white-space: pre-line;
 }
 
 .createBlogForm button{
@@ -173,12 +171,41 @@ h1{
 
 /* ====================================== */
 
+/* =================CONTENT CONTAINING DIV===================== */
 
+.contentDisplay .blogPostSection{
+    width:80%;
+    font-size: 3rem;
+    /* text-align: center; */
+    margin:1rem 0;
+    padding-bottom:10px;
+    font-variant:small-caps;
+    color:rgb(255, 229, 169);
+    border-bottom: 5px solid black;
+    border-top: 5px solid black;
+}
 
+.contentDisplay .blogPostContainer{
+    background-color: rgb(126, 183, 248);
+    padding:1rem;
+    margin:0 2rem 1rem 0;
+    border-radius: 1rem;
+}
 
+.contentDisplay .blogPostContainer .blogPostHeader{
+    color:rgb(7, 71, 136);
+    font-size:2rem
+}
 
-
-
+.contentDisplay .blogPostContainer .blogPostTimestamp{
+    font-size: 1rem;
+    color:rgb(7, 71, 136);
+    font-variant:small-caps;
+    padding-bottom: 1rem;
+}
+.contentDisplay .blogPostContainer .blogPostContent{
+    font-size: 1.2rem;
+}
 
 
 

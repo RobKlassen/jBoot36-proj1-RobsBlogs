@@ -2,23 +2,19 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { ref, onValue } from 'firebase/database';
 import database from './firebase';
-// import GetSection from './GetSection';
 import GetBlogPosts from './GetBlogPosts';
 import Header from './Header';
 import Footer from './Footer';
 import CreateNewBlog from './CreateNewBlog';
-// import GetNewPostForm from './GetNewPostForm';
+
 
 function App() {
    
     const [showSection, setShowSection] = useState(false);
     const [showCreateBlog, setShowCreateBlog] = useState(false);
     const [showMain, setShowMain] = useState(true);
-
     const [targetSection, setTargetSection] = useState(null);
-
     const [sectionList, setSectionList] = useState([]);
-    // const [blogPosts, setBlogPosts] = useState([]);
 
     useEffect(function(){
         const dbRef = ref(database);
@@ -57,7 +53,7 @@ function App() {
                                 ?
                                 <>
                                     <GetBlogPosts section={ targetSection }/>
-                                    <CreateNewBlog currentBlog={ targetSection }/>
+                                    <CreateNewBlog currentBlog={ targetSection } newPostHeaderTop={"Make a new post!"} newPostHeaderBot={"It will be added to "} postBlogButtonText={"create new post!"} />
 
                                 </>
                                 : 
@@ -66,7 +62,7 @@ function App() {
                             {
                                 showCreateBlog === true 
                                 ?
-                                <CreateNewBlog currentBlog={ "newblog" }/>
+                                <CreateNewBlog currentBlog={ "newblog" } newPostHeaderTop={"Create a new Blog!"} newPostHeaderBot={"Make your first post"} postBlogButtonText={"create new blog!"} />
                                 : 
                                 null
                             }
@@ -83,6 +79,7 @@ function App() {
                                 ?
                                     sectionList.map(function(siteSection){
                                         return(
+// KEY ERROR IS HERE FIX THIS SPOT IT NEEDS TO GO ON THE <> // 
                                             <>
                                                 <button onClick={ function(){
                                                     setTargetSection(siteSection.name)                                 
@@ -90,6 +87,7 @@ function App() {
                                                 }
                                                 }>{siteSection.name}</button> 
                                             </>
+// KEY ERROR IS HERE FIX THIS SPOT IT NEEDS TO GO ON THE <> // 
                                         )
                                     }) 
                                 :
@@ -98,7 +96,6 @@ function App() {
                                 }
                                 }>Return to Main</button>
                             }
-
                         </ul>
                     </div>
                 </div>

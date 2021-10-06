@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { ref, onValue } from 'firebase/database';
 import database from './firebase';
-import GetSection from './GetSection';
+// import GetSection from './GetSection';
 
 const GetBlogPosts = function(props){
     const [blogPosts, setBlogPosts] = useState([]);
+
+    useEffect(()=>{return (() => {});},[]);
 
     useEffect(function(){
         const dbRef = ref(database);
@@ -24,18 +26,30 @@ const GetBlogPosts = function(props){
             }
             setBlogPosts(dataBlogPostArray);
         });       
-    });
+    },[]);
+
+    
 
     return( 
-        blogPosts.map(function(blogpost){
-            return(
-                <>
-                    <GetSection key={ blogpost.key+"title" } section={ blogpost.title }/>
-                    <GetSection key={ blogpost.key+"content" } section={ blogpost.content }/>
-                    <GetSection key={ blogpost.key+"content" } section={ blogpost.timestamp }/>
-                </>      
-            )
-        })
+        <>
+            <h2 className="blogPostSection">{props.section}</h2>
+            {
+            blogPosts.map(function(blogpost){
+                return(
+                    <div className="blogPostContainer" key={ blogpost.key } >
+                        <h3 className="blogPostHeader">{ blogpost.title }</h3>
+                        <p className="blogPostTimestamp">{ blogpost.timestamp }</p>
+                        <p className="blogPostContent">{ blogpost.content }</p>
+                    </div>
+                    // <>
+                    //     <GetSection key={ blogpost.key+"title" } section={ blogpost.title }/>
+                    //     <GetSection key={ blogpost.key+"content" } section={ blogpost.content }/>
+                    //     <GetSection key={ blogpost.key+"content" } section={ blogpost.timestamp }/>
+                    // </>      
+                )
+            })
+            }
+        </>
     )
 }
 
