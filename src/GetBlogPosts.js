@@ -25,12 +25,15 @@ const GetBlogPosts = function(props){
                 dataBlogPostArray.push(dataObject);
             }
             setBlogPosts(dataBlogPostArray);
-        });       
-    },);
-    // });
-    // },[]);
-    //which one??
-    // });
+        });
+        
+// ========================================================================
+},[props.section]);
+// });
+// },);
+// },[]);
+//which one??
+// ========================================================================
 
     return( 
         <>
