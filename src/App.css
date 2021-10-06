@@ -152,7 +152,9 @@ h1{
     height:10rem;
     font-size:1rem;
     resize: none;
-    white-space: pre-line;
+
+    /* white-space: break-spaces; */
+    /* white-space: ; */
 }
 
 .createBlogForm button{

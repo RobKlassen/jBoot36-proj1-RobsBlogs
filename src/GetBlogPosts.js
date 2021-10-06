@@ -28,8 +28,6 @@ const GetBlogPosts = function(props){
         });       
     },[]);
 
-    
-
     return( 
         <>
             <h2 className="blogPostSection">{props.section}</h2>
@@ -39,13 +37,16 @@ const GetBlogPosts = function(props){
                     <div className="blogPostContainer" key={ blogpost.key } >
                         <h3 className="blogPostHeader">{ blogpost.title }</h3>
                         <p className="blogPostTimestamp">{ blogpost.timestamp }</p>
-                        <p className="blogPostContent">{ blogpost.content }</p>
-                    </div>
-                    // <>
-                    //     <GetSection key={ blogpost.key+"title" } section={ blogpost.title }/>
-                    //     <GetSection key={ blogpost.key+"content" } section={ blogpost.content }/>
-                    //     <GetSection key={ blogpost.key+"content" } section={ blogpost.timestamp }/>
-                    // </>      
+                        
+                        {/* THIS IS FROM: 
+                        https://www.jsdiaries.com/how-to-create-a-new-line-in-jsx-and-reactjs/
+                        WHAT A LEGENDARY SOLUTION TO THE NEWLINE PROBLEM HOLY SMOKES */}
+                        {
+                            blogpost.content.split('\n').map(i =>{
+                                return <p className="blogPostContent">{i}</p>
+                            })
+                        }  
+                    </div>   
                 )
             })
             }
@@ -54,3 +55,6 @@ const GetBlogPosts = function(props){
 }
 
 export default GetBlogPosts
+
+
+
