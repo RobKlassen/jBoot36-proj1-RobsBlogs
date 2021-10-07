@@ -10,7 +10,7 @@ import CreateInput from './CreateInput';
 
 const CreateNewBlog = function(props){
 
-    const { currentBlog, newPostHeaderTop, newPostHeaderBot, postBlogButtonText } = props;
+    const { currentBlog, newPostHeaderTop, newPostHeaderBot, postBlogButtonText, successPostText } = props;
 
     const [userInputBlog, setUserInputBlog] = useState("");
     const [userInputTitle, setUserInputTitle] = useState("");
@@ -83,7 +83,7 @@ const CreateNewBlog = function(props){
         ?
             <div className="blogCreateContainer">
                 <h2>{ newPostHeaderTop }</h2>
-                <h3>{ newPostHeaderBot }{ blogTitle }</h3>
+                <h3>{ newPostHeaderBot }<span class="blogTitle">{ blogTitle }</span></h3>
                 <form onSubmit={ handleSubmitPostTitle } className="createBlogForm">
                     {
                         enableNewBlog === true
@@ -126,11 +126,11 @@ const CreateNewBlog = function(props){
                 </form>
             </div>
         :
-            <> 
-                <h2>Post Made!</h2>
-                <button 
-                    onClick={ () => setShowCompleteBlog(false) }>Make Another Post?</button>
-            </> 
+            <div className="postMade">
+                <p>SUCCESS!</p>
+                <button
+                    onClick={ () => setShowCompleteBlog(false) }>{ successPostText }</button>
+            </div>  
         }
         </>
     )

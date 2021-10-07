@@ -14,26 +14,16 @@ html{
 .App{
     width:90%;
     margin:0 auto;
-    /* display: flex;
-    flex-direction: column; */
-}
-
-.wrapper{
-    /* width:90%;
-    margin:0 auto; */
 }
 
 header{
+    height:100%;
     width:100%;
     background-color: rgb(255, 205, 89);
     text-align: center;
     border:solid 1px black;
-}
 
-h1{
-    color:rgb(7, 71, 136);
 }
-
 
 .mainWrapper{
     margin:0 auto;
@@ -44,11 +34,56 @@ h1{
     height:100%;
 }
 
+h1{
+    font-size:3.5rem;
+    color:rgb(7, 71, 136);
+}
+
+header h2{
+    color:black;
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+/* ====================MAIN BODY CONTENT====================== */
+.contentDisplay .mainContent{
+    padding-top:1rem;
+    font-size:1.2rem;
+}
+
+.contentDisplay .mainContent span{
+    border-radius: 10px;
+    font-weight: 600;
+    padding:0 5px;
+    color:rgb(7, 71, 136);
+}
+
+.mainYellow{
+    background-color: rgb(255, 229, 169);
+}
+
+.mainGreen{
+    background-color: rgb(151, 255, 173);
+}
+
+.mainRed{
+    background-color: rgb(255, 97, 97);
+}
+
+.mainOrange{
+    background-color: rgb(240, 175, 77);
+}
+
+
+/* ===================NAV BUTTONS======================= */
+
 .navButtons{
     background-color: rgb(7, 71, 136);
     width:250px;
     min-height:500px;
-    /* border: solid 1px black; */
 }
 
 .navButtons ul{
@@ -66,14 +101,43 @@ h1{
     min-height:30px;
     max-height:100%;
     padding:0;
-    margin: 5px 0 0 0;
+    margin: 7px 0 0 0;
     border:none;
     color:rgb(7, 71, 136);
     background-color: rgb(255, 229, 169);
     font-size: 1rem;
     font-weight: 600;
+    transition: all ease 0.15s;
 }
-.navButtons ul .createNewBlogButton{
+
+.navButtons ul button:hover,
+.navButtons ul button:focus{
+    filter: drop-shadow(0 0 5px black);
+    background-color: rgb(126, 183, 248);
+    color:black;
+    width:100%;
+    padding-left:5%;
+    padding-right:5%;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+}
+
+.navButtons ul .buttonReturnToMain{
+    width:100%;
+    color: rgb(7, 71, 136);
+    background-color: rgb(151, 255, 173);
+    border-top: solid 4px rgb(58, 136, 64);
+    border-bottom: solid 4px rgb(58, 136, 64);
+}
+.navButtons ul .buttonViewRandom{
+    width:100%;
+    color: rgb(7, 71, 136);
+    background-color: rgb(240, 175, 77);
+    border-top: solid 4px rgb(172, 92, 1);
+    border-bottom: solid 4px rgb(172, 92, 1);
+}
+
+.navButtons ul .buttonCreateNew{
     width:100%;
     color: rgb(7, 71, 136);
     background-color: rgb(255, 97, 97);
@@ -83,32 +147,45 @@ h1{
 
 /* ===================MAIN CONTENT AREA=================== */
 .contentDisplay{
-    /* padding-top: 2rem; */
     padding-bottom: 2rem;
     width:80%;
-    /* display:flex; */
-    /* flex-direction: column; */
 }
 
 /* ===================CREATE BLOG CONTAINER TITLES=================== */
+
 .blogCreateContainer h2,
 .blogCreateContainer h3{
-    text-align: center;
-    padding-bottom: 2rem;
-    /* color: red; */
+    text-align: left;
+    /* padding-left: 10%; */
 
 }
+
+.blogCreateContainer h2{
+    padding-top:1rem;
+    font-size:2rem;
+    color:black;
+}
+
+.blogCreateContainer h3{
+    color:black;
+    font-variant: small-caps;
+}
+/* span for title */
+.blogCreateContainer .blogTitle{
+    color:rgb(7, 71, 136);
+    filter: drop-shadow(0 0 5px rgb(255, 229, 169));
+}
+
 .blogCreateContainer .createBlogForm{
     display:flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 /* ===================NEW BLOG GROUPING=================== */
 .blogCreateContainer .createBlogForm .blogTitleGroup{
     width:80%;
     display:flex;
     flex-direction: row;
-    /* justify-content: center; */
 }
 .blogCreateContainer .createBlogForm .blogTitleLabel{
     font-size:2rem;
@@ -125,9 +202,6 @@ h1{
     width:80%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* align-content: center; */
 }
 /* ====================================== */
 
@@ -136,68 +210,116 @@ h1{
     display: flex;
     flex-direction: column;
 }
+
 .blogCreateContainer .createBlogForm .postTitleLabel,
 .blogCreateContainer .createBlogForm .postContentLabel{
     font-size:1.5rem;
+    padding: 0.25rem 1rem;
+}
+.blogCreateContainer .createBlogForm .postTitleInput,
+.blogCreateContainer .createBlogForm .postContentInput{
+    width:100%;
+    padding:0.5rem;
+}
+.blogCreateContainer .createBlogForm .blogTitleInput,
+.blogCreateContainer .createBlogForm .postTitleInput,
+.blogCreateContainer .createBlogForm .postContentInput{
+    background-color:rgb(255, 229, 169);
+    border: solid 2px rgb(7, 71, 136);
+    filter: drop-shadow(0 0 3px rgb(7, 71, 136));
 }
 
 .blogCreateContainer .createBlogForm .postTitleInput{
-    width:100%;
     height:1.5rem;
-    font-size:1.5rem
+    font-size:1.5rem;
 }
 
 .blogCreateContainer .createBlogForm .postContentInput{
-    width:100%;
     height:10rem;
     font-size:1rem;
     resize: none;
-
-    /* white-space: break-spaces; */
-    /* white-space: ; */
 }
 
-.createBlogForm button{
+.createBlogForm button
+{
+    margin-right:20%;
+    align-self: flex-end;
+}
+.createBlogForm button,
+.postMade button{
+    position:relative;
+    right:0;
     border-style: none;
     width: 14rem;
     height: 3rem;
     margin-top:1rem;
-    margin-right:10%;
-    align-self: flex-end;
-    background-color: rgb(255, 205, 89);
     color: rgb(7, 71, 136);
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
+    filter: drop-shadow(0 0 5px rgb(7, 71, 136));
+    background-color: rgb(255, 205, 89);
+    transition: all ease 0.2s;
 }
-
+.createBlogForm button:hover,
+.createBlogForm button:focus{
+    position: relative;
+    right: -0.5rem;
+    width: 15rem;
+    background-color: rgb(255, 97, 97);
+}
 /* ====================================== */
 
+.postMade{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.postMade p{
+    text-align: center;
+    font-size: 3rem;
+    color:rgb(255, 205, 89);
+    filter: drop-shadow(0 0 5px rgb(7, 71, 136));
+}
+
+.postMade button:hover,
+.postMade button:focus{
+    width: 15rem;
+    background-color: rgb(255, 97, 97);
+}
+
+
+
+
+/* ====================================== */
 /* =================CONTENT CONTAINING DIV===================== */
 
 .contentDisplay .blogPostSection{
     width:80%;
     font-size: 3rem;
-    /* text-align: center; */
     margin:1rem 0;
-    padding-bottom:10px;
+    padding:0 0 0.5rem 1rem;
     font-variant:small-caps;
     color:rgb(255, 229, 169);
-    border-bottom: 5px solid black;
-    border-top: 5px solid black;
+    border-bottom: 5px solid rgb(7, 71, 136);
+    border-top: 5px solid rgb(7, 71, 136);
+    filter: drop-shadow(0 0 5px rgb(7, 71, 136));
 }
 
 .contentDisplay .blogPostContainer{
     background-color: rgb(126, 183, 248);
     padding:1rem;
-    margin:0 2rem 1rem 0;
+    margin:1rem 2rem 0 0;
     border-radius: 1rem;
+    filter: drop-shadow(0 0 5px rgb(7, 71, 136));
 }
 
 .contentDisplay .blogPostContainer .blogPostHeader{
     word-wrap: break-word;
     color:rgb(7, 71, 136);
-    font-size:2rem
+    font-size:2rem;
+    text-decoration: underline;
 }
 
 .contentDisplay .blogPostContainer .blogPostTimestamp{
@@ -226,4 +348,45 @@ footer p{
     font-size: 1rem;
     text-align: center;
     margin-top: auto;
+}
+
+
+/* 
+It's very late the night before this is due, and I've done my best to style things "acceptably", but responsiveness will not get done """properly""" tonight.
+
+In the 5 minutes I'm giving this part of the project, this is ... ugh, -servicable-, though I'm ashamed to even call it that.
+*/
+@media (max-width:900px){
+
+    .contentDisplay{
+        width:100%;
+    }
+    .navButtons{
+        width:100%;
+        height:100%;
+    }
+
+    .mainWrapper{
+        margin:0 auto;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        min-height:100vh;
+        height:100%;
+    }
+
+    .navButtons ul{
+        height:100%;
+        display:flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding:0;
+        margin:0;
+    }
+    
+    .navButtons ul button{
+        width:100%;
+    }
+
 }
