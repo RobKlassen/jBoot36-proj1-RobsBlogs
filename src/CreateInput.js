@@ -1,6 +1,5 @@
 // The purpose of this componenent is to create the actual inputs with values appropriate to their function, 
 
-
 import { useEffect } from 'react';
 
 const CreateInput = function(props){

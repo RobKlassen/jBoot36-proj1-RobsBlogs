@@ -1,17 +1,13 @@
+//This Component is actually rendering the blog posts in each blog
+
 import { useState, useEffect } from 'react';
 import { ref, onValue } from 'firebase/database';
 import database from './firebase';
 
+//There is absolutely a way to pass this functionality into the other firebase api call, but, it involves storing a potential truckload of information.  
+//the way I made this, only the key is passed into this component (props.section) and because the key will be consistent, we can use it to access the database
+//Again, messy to have a second api call, but in theory if there were a TON of blogs, we wouldn't need to store all the info
 const GetBlogPosts = function(props){
-
-    // const welcome = {
-    //     key:"",
-    //     content:"Welcome",
-    //     title:"Welcome!!",
-    //     timestamp:"WELCOMEOME"
-    // }
-
-    // const [blogPosts, setBlogPosts] = useState([welcome]);
     const [blogPosts, setBlogPosts] = useState([]);
 
     useEffect(()=>{return (() => {});},[]);
@@ -34,7 +30,6 @@ const GetBlogPosts = function(props){
             }
             setBlogPosts(dataBlogPostArray);
         });
-        
     },[props.section]);
 
 
@@ -42,6 +37,7 @@ const GetBlogPosts = function(props){
         <>
             <h2 className="blogPostSection">{props.section}</h2>
             {
+                // once we've got the array of blog posts, we can just map them into a div with stuff in it that can be consistently styled.
                 blogPosts.map(function(blogpost){
                     return(
                         <div className="blogPostContainer" key={ blogpost.key } >

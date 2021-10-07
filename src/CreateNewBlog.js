@@ -1,7 +1,3 @@
-//=====
-// Replace Code From StackExchange
-//=====
-
 // This component handles all the post creation functionality, with some conditionals set up to determine where
 import { useState } from 'react'
 import { ref, push } from 'firebase/database';
@@ -20,7 +16,6 @@ const CreateNewBlog = function(props){
     // Checks weather we are creating a new plog, or appending to an existing blog post.  I'm sure there's a better way to do this, but it's servicable for the time being.  This conditional lets the code either render as the "new blog" or "new post"
 
     // Also sets a variable to either the blog title or an empty string to an empty string for later reference.  Bad catch, but it works.  
-
     let enableNewBlog = false;
     let blogTitle = currentBlog;
     if (currentBlog === "newblog"){
@@ -40,7 +35,6 @@ const CreateNewBlog = function(props){
     }
 
     // database push function, 
-
     const handleSubmitPostTitle = function(event){
         event.preventDefault();
 
@@ -72,13 +66,15 @@ const CreateNewBlog = function(props){
             setShowCompleteBlog(true);
         }
         else{
+            // look the alert is kind of a dumb feature but I always wanted to use one somewhere - this is my freebie
             alert("Please fill out all inputs");
         }
     }
 
     return(
         <>
-        {        
+        {    
+        // This first ternary checks if a "post has been made already", if not, then it renders inputs    
         showCompleteBlog === false 
         ?
             <div className="blogCreateContainer">
@@ -86,6 +82,9 @@ const CreateNewBlog = function(props){
                 <h3>{ newPostHeaderBot }<span class="blogTitle">{ blogTitle }</span></h3>
                 <form onSubmit={ handleSubmitPostTitle } className="createBlogForm">
                     {
+                        //The next ternary is checking to see if we're making a new blog, or just a new post, based on that variable up at the top of this component
+                        // each input passes the relevant information to the CreateInput component which then handles the work of actually making the inputs,
+                        // it doesn't seem like it saves much space, but if I needed more inputs it would, in theory, be very easy.
                         enableNewBlog === true
                         ?
                         <CreateInput 
@@ -125,7 +124,7 @@ const CreateNewBlog = function(props){
                     <button>{ postBlogButtonText }</button>
                 </form>
             </div>
-        :
+        : // just makes a little notification that the push was successful 
             <div className="postMade">
                 <p>SUCCESS!</p>
                 <button

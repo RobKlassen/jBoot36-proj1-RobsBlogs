@@ -1,4 +1,5 @@
 const Header = function(){
+    // I sort of wonder if this is needlessly small for a component...
     return(
         <header>
             <div>

@@ -3,6 +3,7 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from 'firebase/database';
 
+//The firebase call information, do not touch, do not look at, do not think about, do not do anything with this.
 const firebaseConfig = {
     apiKey: "AIzaSyCYaaAfiVr0bk0dhapBFuAdVu-mXC43hkw",
     authDomain: "react-project3-blog.firebaseapp.com",
