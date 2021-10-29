@@ -51,13 +51,18 @@ header h2{
 }
 
 
-
+a{
+    text-decoration: none;
+    color:rgb(251, 194, 94);
+}
 
 
 /* ====================MAIN BODY CONTENT====================== */
 .contentDisplay .mainContent{
     padding-top:1rem;
     font-size:1.2rem;
+    text-align: justify;
+    text-justify: auto;
 }
 
 .contentDisplay .mainContent span{
@@ -166,6 +171,35 @@ header h2{
     padding-bottom: 2rem;
     width:80%;
     position: relative;
+}
+
+.mainAnchorMySite{
+    display:flex;
+    flex-direction: column;
+    width:300px;
+    background-color: rgb(61, 72, 98);
+    padding:10px;
+    border-radius: 10px;
+    margin-top:10px;
+    color:rgb(251, 194, 94);
+    font-weight: 600;
+}
+.mainAnchorMySite:hover,
+.mainAnchorMySite img:hover{
+    color:white;
+    filter: drop-shadow(0 0 5px rgb(251, 194, 94));
+    transition: ease all 0.2s;
+}
+
+.mainAnchorMySite img{
+    width:100%;
+}
+
+strong{
+    font-weight:600;
+}
+em{
+    font-style: italic;
 }
 
 /* ===================CREATE BLOG CONTAINER TITLES=================== */
