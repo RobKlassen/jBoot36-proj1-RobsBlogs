@@ -36,45 +36,65 @@ const GetBlogPosts = function(props){
 
     return(
         <>
-            <h2 className="blogPostSection">{props.section}</h2>
-            <Buttonbox
-                currentPost={null}
-                currentSection={props.section}
-                buttonText={"Delete The Entire Blog"}
-                buttonBoxClass={"deleteWholeBlogBox"}
-                buttonLargeIndividualClass={"deleteAllLarge"}
-                buttonSmallIndividualClass={"deleteAllSmall"}
-            />
             {
-                // once we've got the array of blog posts, we can just map them into a div with stuff in it that can be consistently styled.
-                blogPosts.map(function(blogpost){
-                    return(
-                        <div className="blogPostContainer" key={ blogpost.key } >
-                            <h3 className="blogPostHeader">{ blogpost.title }</h3>
-                            <p className="blogPostTimestamp">    { blogpost.timestamp }</p>
-                            {
-                                blogpost.content.split('\n').map((i,index) =>{
-                                    return <p key={index} className="blogPostContent">    {i}</p>
-                                })
-                                // THIS IS FROM: 
-                                // https://www.jsdiaries.com/how-to-create-a-new-line-in-jsx-and-reactjs/
-                                // WHAT A LEGENDARY SOLUTION TO THE NEWLINE PROBLEM HOLY SMOKES 
-                                
-                                // Also, put in ALT+255 ascii character (non space blank space) into the above and below code, which solves the quirky issue of indentation
-                            }
-                            <Buttonbox 
-                                currentPost={blogpost}
-                                currentSection={props.section}
-                                buttonText={"Delete This Post"}
-                                buttonBoxClass={"deletePostBox"}
-                                buttonLargeIndividualClass={"fullbutton"}
-                                buttonSmallIndividualClass={"smallbutton"}
+                // This was a simple way to show that the blog has been deleted, after you delete it. Intead of rendering the blog it renders a special message (while holding some blog information in state and allowing the user to "remake" it if they want)
+                blogPosts.length <= 0
+                ?
+                <>
+                    <h2 className="blogPostSection">BLOG HAS BEEN DELETED</h2>
+                    <h2>And all its posts are gone</h2>
+                    <div className="blogPostContainer">
+                        <h3 className="blogPostHeader">However:</h3>
+                        <p className="blogPostContent">If you want, you can restart <strong>{props.section}</strong> right now! </p>
+                        <p className="blogPostContent">    • Just make a new post using the form below before navigating away.</p>
+                        <p className="blogPostContent">    • Once you navigate away this blog is gone forever. </p>
+                    </div>
+                </>
+                :
+                //otherwise it runs through this code and renders the blog and its posts properly 
+                <>
+                    <h2 className="blogPostSection">{props.section}</h2>
+                    <Buttonbox
+                        currentPost={null}
+                        currentSection={props.section}
+                        buttonText={"Delete The Entire Blog"}
+                        buttonBoxClass={"deleteWholeBlogBox"}
+                        buttonLargeIndividualClass={"deleteAllLarge"}
+                        buttonSmallIndividualClass={"deleteAllSmall"}
+                    />
+                    {
+                        // once we've got the array of blog posts, we can just map them into a div with stuff in it that can be consistently styled.
+                        blogPosts.map(function(blogpost){
+                            return(
+                                <div className="blogPostContainer" key={ blogpost.key } >
+                                    <h3 className="blogPostHeader">{ blogpost.title }</h3>
+                                    <p className="blogPostTimestamp">    { blogpost.timestamp }</p>
+                                    {
+                                        blogpost.content.split('\n').map((i,index) =>{
+                                            return <p key={index} className="blogPostContent">    {i}</p>
+                                        })
+                                        // THIS IS FROM: 
+                                        // https://www.jsdiaries.com/how-to-create-a-new-line-in-jsx-and-reactjs/
+                                        // WHAT A LEGENDARY SOLUTION TO THE NEWLINE PROBLEM HOLY SMOKES 
+                                        
+                                        // Also, put in ALT+255 ascii character (non space blank space) into the above and below code, which solves the quirky issue of indentation
+                                    }
+                                    <Buttonbox 
+                                        currentPost={blogpost}
+                                        currentSection={props.section}
+                                        buttonText={"Delete This Post"}
+                                        buttonBoxClass={"deletePostBox"}
+                                        buttonLargeIndividualClass={"fullbutton"}
+                                        buttonSmallIndividualClass={"smallbutton"}
 
-                                />
-                        </div>   
-                    )
-                })
+                                        />
+                                </div>   
+                            )
+                        })
+                    }
+                </>
             }
+
         </>
     )
 }
