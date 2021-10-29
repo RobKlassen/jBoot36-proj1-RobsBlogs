@@ -162,8 +162,10 @@ header h2{
 
 /* ===================MAIN CONTENT AREA=================== */
 .contentDisplay{
+    margin-top:10px;
     padding-bottom: 2rem;
     width:80%;
+    position: relative;
 }
 
 /* ===================CREATE BLOG CONTAINER TITLES=================== */
@@ -332,6 +334,7 @@ header h2{
 }
 
 .contentDisplay .blogPostContainer .blogPostHeader{
+    max-width:80%;
     font-family: 'Merriweather', serif;
     word-wrap: break-word;
     color:rgb(7, 71, 136);
@@ -356,6 +359,102 @@ header h2{
 
 
 
+
+/* ====================================== */
+/* =================DELETE BUTTON STYLING (Buttonbox) COMPONENT===================== */
+.contentDisplay .deletePostBox{
+    position: absolute;
+    top:10px;
+    right:5px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;    
+}
+
+.contentDisplay .deletePostBox button{
+    transition: ease all 0.2s;
+    text-transform: uppercase;
+    padding:5px;
+    text-align: center;
+    border-radius: 0rem;
+    border:solid 2px rgb(7, 71, 136);
+    color:rgb(7, 71, 136);
+    background-color: rgb(126, 183, 248);
+    filter: drop-shadow(0 0 2px rgb(7, 71, 136));
+    font-weight:600;
+}
+.contentDisplay .deletePostBox button:hover{
+    background-color: rgb(255, 97, 97);
+    filter: drop-shadow(0 0 2px red);
+}
+
+.contentDisplay .deletePostBox .fullbutton{
+    border-top-right-radius: 0.5rem; 
+}
+
+.contentDisplay .deletePostBox .fullbutton:hover{
+    border-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.contentDisplay .deletePostBox p{
+    font-size:0.8rem;
+    font-variant: small-caps;
+    margin-right: 10px;
+    font-weight:600;
+}
+
+.contentDisplay .deletePostBox .smallbutton{
+    margin-right:5px;
+    width: 40px;
+}
+
+/* ====================================== */
+.contentDisplay .deleteWholeBlogBox{
+    position: absolute;
+    top: 0px;
+    right:20%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;    
+    background-color: rgb(126, 183, 248);
+    border: solid 3px rgb(7, 71, 136); 
+    filter: drop-shadow(0 0 2px rgb(7, 71, 136));
+}
+
+.contentDisplay .deleteWholeBlogBox button{
+    transition: ease all 0.2s;
+    text-transform: uppercase;
+    padding:10px;
+    text-align: center;
+    border-radius: 0rem;
+    border:none;
+    color:rgb(7, 71, 136);
+    background-color: rgb(126, 183, 248);
+    font-weight:600;
+}
+
+.contentDisplay .deleteWholeBlogBox button:hover{
+    background-color: rgb(255, 97, 97);
+    filter: drop-shadow(0 0 2px red);
+}
+
+.contentDisplay .deleteWholeBlogBox p{
+    font-size:0.8rem;
+    font-variant: small-caps;
+    margin-right: 10px;
+    margin-left:10px;
+    font-weight:600;
+}
+
+/* =================DELETE BUTTON STYLING (Buttonbox) COMPONENT===================== */    
+/* ====================================== */
+
+
+
+
+
+/* =======================FOOTER STYLING===================================== */
 
 footer{
     background-color: rgb(0, 0, 0);

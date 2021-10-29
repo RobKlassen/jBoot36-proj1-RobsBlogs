@@ -79,7 +79,7 @@ const CreateNewBlog = function(props){
         ?
             <div className="blogCreateContainer">
                 <h2>{ newPostHeaderTop }</h2>
-                <h3>{ newPostHeaderBot }<span class="blogTitle">{ blogTitle }</span></h3>
+                <h3>{ newPostHeaderBot }<span className="blogTitle">{ blogTitle }</span></h3>
                 <form onSubmit={ handleSubmitPostTitle } className="createBlogForm">
                     {
                         //The next ternary is checking to see if we're making a new blog, or just a new post, based on that variable up at the top of this component
