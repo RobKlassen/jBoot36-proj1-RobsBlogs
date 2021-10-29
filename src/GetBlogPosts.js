@@ -3,12 +3,14 @@
 import { useState, useEffect } from 'react';
 import { ref, onValue } from 'firebase/database';
 import database from './firebase';
+import Buttonbox from './Buttonbox';
 
 //There is absolutely a way to pass this functionality into the other firebase api call, but, it involves storing a potential truckload of information.  
 //the way I made this, only the key is passed into this component (props.section) and because the key will be consistent, we can use it to access the database
 //Again, messy to have a second api call, but in theory if there were a TON of blogs, we wouldn't need to store all the info
 const GetBlogPosts = function(props){
     const [blogPosts, setBlogPosts] = useState([]);
+
 
     useEffect(()=>{return (() => {});},[]);
 
@@ -32,10 +34,17 @@ const GetBlogPosts = function(props){
         });
     },[props.section]);
 
-
     return(
         <>
             <h2 className="blogPostSection">{props.section}</h2>
+            <Buttonbox
+                currentPost={null}
+                currentSection={props.section}
+                buttonText={"Delete The Entire Blog"}
+                buttonBoxClass={"deleteWholeBlogBox"}
+                buttonLargeIndividualClass={"deleteAllLarge"}
+                buttonSmallIndividualClass={"deleteAllSmall"}
+            />
             {
                 // once we've got the array of blog posts, we can just map them into a div with stuff in it that can be consistently styled.
                 blogPosts.map(function(blogpost){
@@ -53,6 +62,15 @@ const GetBlogPosts = function(props){
                                 
                                 // Also, put in ALT+255 ascii character (non space blank space) into the above and below code, which solves the quirky issue of indentation
                             }
+                            <Buttonbox 
+                                currentPost={blogpost}
+                                currentSection={props.section}
+                                buttonText={"Delete This Post"}
+                                buttonBoxClass={"deletePostBox"}
+                                buttonLargeIndividualClass={"fullbutton"}
+                                buttonSmallIndividualClass={"smallbutton"}
+
+                                />
                         </div>   
                     )
                 })
